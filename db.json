@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "Ajay",
+      "lastName": "Kavalkar",
+      "profilePic": "blob:http://localhost:4200/c5eefcb1-eca8-49cd-9f57-243be31d69ad",
+      "mobile": 9562315220,
+      "email": "ajay@gmail.com",
+      "age": 25,
+      "state": "Maharashtra",
+      "country": "India",
+      "addressType": "home",
+      "address1": "Satyanand temple road, Guruji ashram, Pentnaka, Sahnewal",
+      "address2": "Satyanand temple road, Guruji ashram, Pentnaka, Sahnewal",
+      "interest": "",
+      "tags": [
+        "movies",
+        "dancing",
+        "painting"
+      ],
+      "newsLetter": true,
+      "id": "4384"
+    }
+  ]
+}

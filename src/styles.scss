@@ -1,0 +1,240 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  outline: none !important;
+}
+body {
+  background: #fff;
+  color: #666666;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Montserrat";
+}
+
+a {
+  color: #18d26e;
+  transition: 0.5s;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #18d36e;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+p {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.cust_btn i.fa {
+  font-size: 1rem;
+}
+.cust_btn {
+  background: #4acaff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border-bottom: 4px solid #0890c8;
+  border-radius: 2px;
+  font-style: italic;
+}
+.modal-content {
+  border: none;
+}
+.modal-header {
+  background: #3aa5dc;
+}
+.modal-title h4{
+  margin: 0;
+  color: #fff;
+}
+
+@media (min-width: 1024px) {
+  #header #logo {
+    padding-left: 60px;
+  }
+
+  #intro p {
+    width: 60%;
+  }
+
+  #intro .carousel-control-prev,
+  #intro .carousel-control-next {
+    width: 5%;
+  }
+
+  #nav-menu-container {
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  #header #logo h1 {
+    font-size: 28px;
+  }
+
+  #header #logo img {
+    max-height: 40px;
+  }
+
+  #intro h2 {
+    font-size: 28px;
+  }
+
+  #nav-menu-container {
+    display: none;
+  }
+
+  #mobile-nav-toggle {
+    display: inline;
+  }
+}
+
+.alert {
+  color: #ff0000c9;
+  padding: 0.25rem 0 0 !important;
+  background: none;
+  margin-bottom: none !important;
+  font-size: 0.8rem;
+}
+
+.alert.m-alert--outline.alert-danger {
+  color: #575962;
+  /* background-color: #fff; */
+  border-color: #f4516c;
+  color: #f0f0f0;
+  background: none; // color: none;
+  padding: 12px;
+  width: 80%;
+  margin: auto;
+  font-weight: 400;
+}
+
+hr.colored {
+  border: 0; /* in order to override TWBS stylesheet */
+  height: 5px;
+  margin: 0;
+  background: -moz-linear-gradient(
+    left,
+    #4acaff 0%,
+    #4acaff 12.5%,
+    #0a5574fc 12.5%,
+    #1a6888 25%,
+    #1a6888 25%,
+    #4acaff 37.5%,
+    #0a5574fc 37.5%,
+    #1a6888 50%,
+    #1a6888 50%,
+    #4acaff 62.5%,
+    #0a5574fc 62.5%,
+    #1a6888 75%,
+    #1a6888 75%,
+    #4acaff 87.5%,
+    #0a5574fc 87.5%,
+    #1a6888 100%,
+    #1a6888 100%
+  ); /* FF3.6+ */
+  background: -webkit-linear-gradient(
+    left,
+    #4acaff 0%,
+    #4acaff 12.5%,
+    #0a5574fc 12.5%,
+    #1a6888 25%,
+    #1a6888 25%,
+    #4acaff 37.5%,
+    #0a5574fc 37.5%,
+    #1a6888 50%,
+    #1a6888 50%,
+    #4acaff 62.5%,
+    #0a5574fc 62.5%,
+    #1a6888 75%,
+    #1a6888 75%,
+    #4acaff 87.5%,
+    #0a5574fc 87.5%,
+    #1a6888 100%,
+    #1a6888 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    left,
+    #4acaff 0%,
+    #4acaff 12.5%,
+    #0a5574fc 12.5%,
+    #1a6888 25%,
+    #1a6888 25%,
+    #4acaff 37.5%,
+    #0a5574fc 37.5%,
+    #1a6888 50%,
+    #1a6888 50%,
+    #4acaff 62.5%,
+    #0a5574fc 62.5%,
+    #1a6888 75%,
+    #1a6888 75%,
+    #4acaff 87.5%,
+    #0a5574fc 87.5%,
+    #1a6888 100%,
+    #1a6888 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    left,
+    #4acaff 0%,
+    #4acaff 12.5%,
+    #0a5574fc 12.5%,
+    #1a6888 25%,
+    #1a6888 25%,
+    #4acaff 37.5%,
+    #0a5574fc 37.5%,
+    #1a6888 50%,
+    #1a6888 50%,
+    #4acaff 62.5%,
+    #0a5574fc 62.5%,
+    #1a6888 75%,
+    #1a6888 75%,
+    #4acaff 87.5%,
+    #0a5574fc 87.5%,
+    #1a6888 100%,
+    #1a6888 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to right,
+    #4acaff 0%,
+    #4acaff 12.5%,
+    #0a5574fc 12.5%,
+    #1a6888 25%,
+    #1a6888 25%,
+    #4acaff 37.5%,
+    #0a5574fc 37.5%,
+    #1a6888 50%,
+    #1a6888 50%,
+    #4acaff 62.5%,
+    #0a5574fc 62.5%,
+    #1a6888 75%,
+    #1a6888 75%,
+    #4acaff 87.5%,
+    #0a5574fc 87.5%,
+    #1a6888 100%,
+    #1a6888 100%
+  ); /* W3C */
+}
+
+.ng5-slider .ng5-slider-pointer,
+.ng5-slider .ng5-slider-selection,
+.ng5-slider .ng5-slider-pointer:after {
+  background: #a5acaf !important;
+}

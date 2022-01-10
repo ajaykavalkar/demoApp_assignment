@@ -1,0 +1,31 @@
+<app-header [transparent]="false"></app-header>
+<div id="profileSection" class="row">
+  <div class="col-4">
+    <div id="profileImage">
+      <img [src]="sanitizer.bypassSecurityTrustResourceUrl(userObj.profilePic) 
+        || 'https://image.flaticon.com/icons/png/512/64/64096.png'" alt="">
+      <span *ngIf="profilePicError==true">Image size should be 310*325</span>
+      <div id="buttonSection">
+        <button class="btn btn-primary profileBtn" type="file" (click)="fileInput.click()">Edit photo</button>
+        <button class="btn btn-primary profileBtn" (click)="openModal()">Edit profile</button>
+        <span id="fileInput">
+          <input type="file" #fileInput accept="image/*" (change)="changeProfilePic($event)" />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-offset-1 col-7">
+    <h4>
+      I am {{userObj.firstName}} I am above {{userObj.age}} years and you can send your emails to <a
+        href="">{{userObj.email}}</a>.
+      I live in in the state of {{userObj.state}}. I like to <span
+        *ngFor="let tag of userObj.tags; let index=index">{{tag}}<span *ngIf="index !== userObj.tags.length - 1">,
+        </span></span>. <span> And please <span *ngIf="userObj.newsLetter==false">don't</span> send me
+        newsletters</span>. <span>Please <span
+          *ngIf="userObj.mobile==undefined || userObj.mobile.length==0">don't</span> reach me out on my phone
+        number</span>.
+    </h4>
+    <button class="btn btn-success">I agree</button>
+  </div>
+</div>
+<app-footer></app-footer>

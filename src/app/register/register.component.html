@@ -1,0 +1,109 @@
+<div class="modal-header">
+  <h6 class="modal-title" id="modal-basic-title"><h4>Register</h4></h6>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close(null)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-4">
+      <div id="profileImage" *ngIf="registerForm && registerForm.value">
+        <img *ngIf="registerForm.value.profilePic!=undefined"
+          [src]="sanitizer.bypassSecurityTrustResourceUrl(registerForm.value.profilePic)" alt="">
+        <img *ngIf="registerForm.value.profilePic==undefined"
+          src="https://simg.nicepng.com/png/small/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="">
+        <span *ngIf="profilePicError==true">Image size should be 310*325</span>
+        <button id="imagePicker" type="file" (click)="fileInput.click()">upload your photo</button>
+        <span id="fileInput">
+          <input type="file" #fileInput accept="image/*" (change)="changeProfilePic($event)" />
+        </span>
+      </div>
+    </div>
+    <div class="col-offset-1 col-7">
+      <form [formGroup]="registerForm" #ngForm="ngForm">
+        <div class="form-row form-group">
+          <div class="col">
+            <input autocomplete="off" type="text" formControlName="firstName" class="form-control form-control-lg"
+              id="firstNameInput" placeholder="First name">
+            <div class="alert" *ngIf="ngForm.submitted || registerForm.controls['firstName'].touched">
+              <div [hidden]="!registerForm.controls['firstName'].hasError('required')">
+                first name is Required
+              </div>
+              <div [hidden]="!registerForm.controls['firstName'].hasError('pattern')">
+                Only Alphabts are allowed
+              </div>
+
+              <div [hidden]="!registerForm.controls['firstName'].hasError('maxlength')">
+                First Name can't be more than 20 characters
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <input autocomplete="off" type="text" formControlName="lastName" class="form-control form-control-lg" id="lastNameInput"
+              placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <input autocomplete="off" type="email" formControlName="email" class="form-control form-control-lg" id="emailInput"
+            placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input autocomplete="off" type="number" min="0" formControlName="mobile" class="form-control form-control-lg" id="mobileInput"
+            placeholder="eg. 9673412006">
+        </div>
+        <div class="form-group form-row d-flex align-items-center">
+          <label class="col-2">Age</label>
+          <div class="col-10">
+            <ng5-slider formControlName="age" [options]="options"></ng5-slider>
+          </div>
+        </div>
+        <div class="form-group">
+          <select id="inputState" formControlName="state" class="form-control form-control-lg">
+            <option [value]="state" *ngFor="let state of stateList">{{state}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="inputState" formControlName="country" class="form-control form-control-lg">
+            <option [value]="country" *ngFor="let country of countryList">{{country}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="inputState" formControlName="addressType" class="form-control form-control-lg">
+            <option [value]="address" *ngFor="let address of addressType">{{address}}</option>
+          </select>
+        </div>
+        <div class="form-group" *ngIf="registerForm.controls['addressType'].value=='home'">
+          <input type="text" formControlName="address1" class="form-control form-control-lg" id="address2" placeholder="Address 1">
+          <br />
+          <input type="text" formControlName="address2" class="form-control form-control-lg" id="address1" placeholder="Address 2">
+        </div>
+        <div class="form-group" *ngIf="registerForm.controls['addressType'].value=='company'">
+          <input type="text" formControlName="address1" class="form-control form-control-lg" id="address2"
+            placeholder="Company Address 1">
+          <br />
+          <input type="text" formControlName="address2" class="form-control form-control-lg" id="address1"
+            placeholder="Company Address 2">
+        </div>
+        <div class="form-group">
+          <input type="text" autocomplete="off" formControlName="interest" class="form-control form-control-lg" (keyup.enter)="addTag()"
+            id="interestInput" placeholder="tags">
+        </div>
+        <div class="form-group" id="tagList">
+          <div class="tags" *ngFor="let tag of registerForm.controls['tags'].value">
+            <p (click)="removeItem(tag)">{{tag}}
+              <i class="fa fa-times"></i>
+            </p>
+          </div>
+        </div>
+        <br />
+        <div id="newsLetter" class="form-group">
+          <label><input type="checkbox" formControlName="newsLetter"> Subscribe to Newsletter</label>
+        </div>
+        <div class="form-group" id="buttonSection">
+          <button type="button" id="cancel" class="btn btn-secondary" (click)="activeModal.close(null)">Cancel</button>
+          <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
